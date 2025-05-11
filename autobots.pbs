@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#PBS -N darkSideOfTheMoon
+#PBS -P HEAL1360
+#PBS -q normal
+#PBS -l select=1:ncpus=25:mpiprocs=25:mem=120GB
+#PBS -l walltime=40:00:00
+#PBS -j oe 
+#PBS -o ./scriptOut
+#PBS -M 14467127@sun.ac.za
+#PBS -m be
+
+# Navigate to Working Directory
+cd $PBS_O_WORKDIR
+
+# Load nextflow
+module load chpc/BIOMODULES
+module load nextflow/24.04.4-all
+
+# Run script
+nextflow run 1OrionPax.nf -c megatron.config -resume

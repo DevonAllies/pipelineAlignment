@@ -1,0 +1,41 @@
+#!/bin/bash
+
+#PBS -N processList
+#PBS -P HEAL1360
+#PBS -q smp
+#PBS -l select=1:ncpus=24:mpiprocs=24:mem=115GB
+#PBS -l walltime=5:00:00
+#PBS -j oe 
+#PBS -o ./scriptOut
+#PBS -M 14467127@sun.ac.za
+#PBS -m be
+
+# Navigate to Working Directory
+cd $PBS_O_WORKDIR
+set -e
+
+# Input CSV file containing the list of samples
+input_csv="CU_WGS_Jun2024_fileList.csv"
+
+# Output CSV file
+output_csv="output_samples.csv"
+
+# Base path to prepend
+base_path="/mnt/lustre/groups/HEAL1360/"
+
+# Write header to output CSV
+echo "sampleId,read1,read2" > "$output_csv"
+
+# Process each line in the input CSV
+while IFS=',' read -r read1 read2; do
+    # Extract LTBIxxx number, including the LTBI prefix from read1 path
+    sample_id=$(echo "$read1" | grep -oP 'LTBI\d+')
+    
+    # Prepend base path and create the output line for both reads
+    output_line="${sample_id},${base_path}${read1},${base_path}${read2}"
+    
+    # Append to output CSV
+    echo "$output_line" >> "$output_csv"
+done < "$input_csv"
+
+echo "Processing complete. Results saved in $output_csv"

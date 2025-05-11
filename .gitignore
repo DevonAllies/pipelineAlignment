@@ -1,0 +1,29 @@
+# Folders to ignore
+results/
+referenceGenome/
+scriptOut/
+nextflow_report/
+.nextflow/
+work/
+
+# Files to ignore
+*.log
+*.out
+*.err
+*.bam
+*.bai
+*.vcf
+*.vcf.gz
+*.vcf.gz.tbi
+*.gvcf
+*.gvcf.gz
+*.gvcf.gz.tbi
+*.gff
+*.gtf
+*.bed
+*.fa
+*.fasta
+*.fastq
+*.fq
+*.fastq.gz
+*.fq.gz
