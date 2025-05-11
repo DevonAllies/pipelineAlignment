@@ -3,11 +3,11 @@
 // Import modules
 
 include { ALIGN }               from "${projectDir}/modules/local/align/main.nf"
-include { SAM_TO_BAM }          from "${projectDir}/modules/local/convert/mainV2.nf"
-include { SORT_BAM }            from "${projectDir}/modules/local/sort/mainV2.nf"
+include { SAM_TO_BAM }          from "${projectDir}/modules/local/convert/main.nf"
+include { SORT_BAM }            from "${projectDir}/modules/local/sort/main.nf"
 include { markDuplicates }      from "${projectDir}/modules/local/markDuplicates/main.nf"
 include { INDEX_BAM }           from "${projectDir}/modules/local/index/main.nf"
-include { HAPLOTYPECALLER }     from "${projectDir}/modules/local/haplotypecaller/mainV2.nf"
+include { HAPLOTYPECALLER }     from "${projectDir}/modules/local/haplotypecaller/main.nf"
 
 
 // Main workflows

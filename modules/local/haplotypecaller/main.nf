@@ -4,7 +4,7 @@ process HAPLOTYPECALLER {
 	publishDir "${params.outdir}/haplotypecaller", mode: "symlink"
 
 	input:
-	tuple val(sampleId), path(sorted_bam), path(sorted_bam_index)
+	tuple val(sampleId), path(marked_bam), path(marked_bam_index)
 	path reference_genome
 	path reference_index
 	path reference_dict
@@ -17,7 +17,7 @@ process HAPLOTYPECALLER {
 	"""
 	gatk HaplotypeCaller 
 	-R ${reference_genome} \
-	-I ${sorted_bam} \
+	-I ${marked_bam} \
 	-O ${sampleId}.g.vcf \
 	-ERC GVCF
 	"""

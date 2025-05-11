@@ -4,14 +4,14 @@ process SORT_BAM {
 	publishDir "${params.outdir}/sorted", mode: 'symlink'
 
 	input:
-	tuple val(sampleId), path(marked_bam)
+	tuple val(sampleId), path(bam)
 
 	output:
 	tuple val(sampleId), path("${sampleId}.sorted.bam"), emit: sorted_bam
 
 	script:
 	"""
-	samtools sort -o ${sampleId}.sorted.bam ${sampleId}.marked.bam}
+	samtools sort -o ${sampleId}.sorted.bam ${bam}
 	"""
 
 	stub:
