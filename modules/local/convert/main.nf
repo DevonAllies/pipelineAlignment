@@ -7,17 +7,17 @@ process SAM_TO_BAM {
 	tuple val(sampleId), path(sam)
 
 	output:
-	tuple val(sampleId), path("${sampleId}*.bam"), emit: bam
+	tuple val(sampleId), path("${sampleId}.bam"), emit: bam
 
 	script:
 	def output_bam	= sam.baseName + ".bam"
 	"""
-	samtools view -bS ${sam} > ${output_bam}
+	samtools view -b -o ${sampleId}.bam ${sam}
 	"""
 
 	stub:
 	def stub_output_bam	= sam.baseName + ".bam"
 	"""
-	touch ${stub_output_bam}
+	touch ${sampleId}.bam
 	"""
 }

@@ -2,7 +2,7 @@
 
 // Import modules
 
-include { JOINTGENOTYPING }     from "${projectDir}/modules/local/jointgenotyping/main2.nf"
+include { JOINTGENOTYPING }     from "${projectDir}/modules/local/jointgenotyping/main.nf"
 include { selectVariants }      from "${projectDir}/modules/local/selectVariants/main.nf"
 include { VARIANT_FILTERING }   from "${projectDir}/modules/local/vqsr/main.nf"
 
