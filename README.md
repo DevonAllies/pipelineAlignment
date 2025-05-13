@@ -48,3 +48,6 @@ qsub autobots.pbs
 - Nextflow ≥22.04
 - Java 8+
 - Singularity/Docker (recommended)
+
+## Acknowledgement:
+This pipeline was developed with resources from the Univeristy of Stellenbosch
