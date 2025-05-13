@@ -15,7 +15,7 @@ process HAPLOTYPECALLER {
 
 	script: 
 	"""
-	gatk HaplotypeCaller 
+	gatk HaplotypeCaller \
 	-R ${reference_genome} \
 	-I ${marked_bam} \
 	-O ${sampleId}.g.vcf \
