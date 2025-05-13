@@ -34,11 +34,10 @@ Edit `megatron.config` for:
 
 ## 📝 Sample Sheets
 Format your input CSV in `modules/sampleSheets/`:
+Add directory and .csv 
 ```csv
 sample,fastq
 sample1,/path/to/reads_R1.fastq.gz
-
-# Add a csv file in the directory
 ```
 
 ## 🤖 PBS Job Submission
