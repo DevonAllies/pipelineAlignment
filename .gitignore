@@ -27,3 +27,4 @@ work/
 *.fq
 *.fastq.gz
 *.fq.gz
+modules/sampleSheets/*.csv
