@@ -12,7 +12,7 @@ process ALIGN {
 
 	script:
 	"""
-	bwa mem -t 16 \
+	bwa mem -t ${task.cpus} \
 	-R "@RG\\tID:${sampleId}\\tSM:${sampleId}\\tLB:lib1\\tPL:MGI\\tPU:unit1" \
 	${reference_dir}/sac.fa \
 	${read1} \

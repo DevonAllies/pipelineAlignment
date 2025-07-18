@@ -11,7 +11,7 @@ process SORT_BAM {
 
 	script:
 	"""
-	samtools sort -o ${sampleId}.sorted.bam ${bam}
+	samtools sort -@ ${task.cpus} -o ${sampleId}.sorted.bam ${bam}
 	"""
 
 	stub:

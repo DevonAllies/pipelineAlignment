@@ -12,7 +12,7 @@ process SAM_TO_BAM {
 	script:
 	def output_bam	= sam.baseName + ".bam"
 	"""
-	samtools view -b -o ${sampleId}.bam ${sam}
+	samtools view -@ ${task.cpus} -b -o ${sampleId}.bam ${sam}
 	"""
 
 	stub:
