@@ -19,8 +19,8 @@ workflow {
     .splitCsv(header:true)
     .map { row -> tuple(row.sampleId, file(row.read1), file(row.read2)) }
 
-    reference_dir_ch    = Channel.fromPath(params.reference_dir)
-    reference_ch        = params.reference_genome
+    reference_dir_ch    = Channel.value(file(params.reference_dir))
+    reference_ch        = Channel.value(file(params.reference_genome))
     reference_dict_ch   = params.reference_dict
     reference_index_ch  = params.reference_index
     hg38_ch             = file(params.hg38)
