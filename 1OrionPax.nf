@@ -34,6 +34,7 @@ workflow {
     hapmap_index_ch     = file(params.hapmap_index)
     omni_ch             = file(params.omni)
     omni_index_ch       = file(params.omni_index)
+    interval_list_ch    = Channel.value(file(params.interval_list)) // Not sure if this must be a channel or can be a path
 
 	// Alignment
 	aligned_sams = ALIGN(samples_ch, reference_dir_ch)
@@ -42,7 +43,7 @@ workflow {
     marked_bams = markDuplicates(sorted_bams)
 	indexed_bams = INDEX_BAM(marked_bams)
 
-    // Variant Calling
+    // Variant Callinglocal/haplotypecaller/chromosomes.list
      gvcfs = HAPLOTYPECALLER(
         marked_bams,
         reference_ch,

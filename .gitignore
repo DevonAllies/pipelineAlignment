@@ -5,6 +5,7 @@ scriptOut/
 nextflow_report/
 .nextflow/
 work/
+modules/sampleSheets
 
 # Files to ignore
 *.log
