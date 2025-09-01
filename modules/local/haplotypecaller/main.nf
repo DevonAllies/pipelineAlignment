@@ -8,6 +8,7 @@ process HAPLOTYPECALLER {
 	path reference_genome
 	path reference_index
 	path reference_dict
+	path interval_list
 
 	output:
 	tuple val(sampleId), path("${sampleId}.g.vcf"), 		emit: vcf
@@ -17,6 +18,7 @@ process HAPLOTYPECALLER {
 	"""
 	gatk HaplotypeCaller \
 	-R ${reference_genome} \
+	-L ${interval_list} \
 	-I ${marked_bam} \
 	-O ${sampleId}.g.vcf \
 	-ERC GVCF
